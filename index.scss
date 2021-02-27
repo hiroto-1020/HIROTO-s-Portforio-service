@@ -1,0 +1,332 @@
+body{
+  width: 100%;
+  font-family:serif;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+header{
+  color: black;
+  font-family: 'Exo', sans-serif;
+  font-weight: bold;
+  background-color: white;
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  a{
+    text-decoration:none;
+    margin-right: 10px;
+    color: black;
+  }
+  a:hover{
+    color: #4e54c8
+  }
+}
+.item{
+  position: fixed;
+  z-index: 120;
+  bottom: 50px;
+  left: 70px;
+  font-size: 20px;
+  background-color: aqua;
+  padding: 10px;
+  border-radius: 18px;
+  background: #a6e0e7;
+  box-shadow:  5px 5px 13px #8dbec4,
+             -5px -5px 13px#bfffff;
+  ul {
+    padding: 20px;
+    padding-top: 30px;
+    border-radius: 0px;
+    background: #5bbdc8;
+    box-shadow: inset 5px 5px 13px #4da1aa,
+            inset -5px -5px 13px #69d9e6;
+    
+    li {
+    background-color: #b7b7b7;
+      list-style: none;
+      margin-bottom: 25px;
+      text-align: center;
+      border-radius: 0px;
+      background: linear-gradient(145deg, #60e8f7, #51c3d0);
+      box-shadow:  5px 5px 10px #49b0bb,
+             -5px -5px 10px #6bffff;
+      a{
+        display: block;
+        height: 100%;
+        padding: 5px 15px;
+        text-decoration: none;
+        color: black;
+      }
+    }
+    li:hover{
+      border-radius: 3px;
+      background: #41a4af;
+      box-shadow: inset 5px 5px 13px #35858e,
+            inset -5px -5px 13px #4dc3d0;
+    }
+  }
+  
+  
+}
+
+
+/*↓表示エフェクト↓*/
+.plan,.hp-lp{
+  opacity: 0;
+  transform: translate(-50px,70px);
+}
+ .coding,
+ .suport{
+  opacity: 0;
+  transform: translate(50px,70px);
+}
+.plan.show,
+.coding.show,
+.hp-lp.show,
+.suport.show{
+opacity: 1;
+transition: 1s;
+transform: none;
+}
+/*↑表示エフェクト↑*/
+
+@mixin back-color {
+  background: #ffffff;
+  box-shadow:  5px 5px 13px #bdbdbd,
+           -5px -5px 13px #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+}
+@mixin back-dezain {
+    border-radius: 10px;
+    background: linear-gradient(145deg, #f5ffff, #cedee6);
+    box-shadow:  5px 5px 10px #c3d2d9,
+                 -5px -5px 10px #ffffff;
+}
+@mixin big-dezain {
+  border-radius: 10px;
+  background: #ebebeb;
+  box-shadow:  5px 5px 10px #c8c8c8,
+               -5px -5px 10px #ffffff;
+}
+.first-content{
+  padding-top: 150px;
+  text-align: center;
+  h1{
+    width:150px;
+    padding: 10px 100px;
+    margin: 0px auto;
+    @include back-dezain();
+  }
+  .service{
+    display: flex;
+    justify-content: center;
+    margin: 50px 0px;
+    .plan{
+      padding: 30px;
+      margin-right: 70px;
+      @include big-dezain();
+    }
+    .coding{
+      @include big-dezain();
+      padding: 30px;
+    }
+    .hp-lp{
+      margin-right: 70px;
+      @include big-dezain();
+      padding: 30px;
+    }
+    .suport{
+      @include big-dezain();
+      padding: 30px;
+    }
+    p{
+      width: 285px;
+      margin: 0px auto;
+      text-align: left;
+      line-height: 1.5em;
+      @include back-color();
+    }
+    h3{
+      @include back-color();
+    }
+  }
+  img{
+    width: 100px;
+    margin: 20px 0px;
+    @include back-color();
+  }
+}
+.second-wrapper{
+  text-align: center;
+  h2{
+    @include back-dezain();
+    width: 200px;
+    margin: 0px auto;
+    padding: 15px;
+  }
+}
+.answer{
+  display: none;
+  background-color: rgb(225, 251, 255);
+  padding:20px 10px;
+  border:solid 1px black;
+}
+.open{
+  display: block;
+}
+@mixin pattern($bg-primary,$bg-secondary) {
+  background:
+    repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 1em,
+    rgba($bg-secondary,0.4) 0,
+    rgba($bg-secondary,0.1) 2em,
+    transparent 0,
+    transparent 1em,
+    rgba($bg-secondary,0.3) 0,
+    rgba($bg-secondary,0.2) 4em,
+    transparent 0,
+    transparent 1em,
+    rgba($bg-primary,0.6) 0,
+    rgba($bg-primary,0.2) 2em
+  ),
+  repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 1em,
+    rgba($bg-secondary,0.4) 0,
+    rgba($bg-secondary,0.1) 2em,
+    transparent 0,
+    transparent 1em,
+    rgba($bg-secondary,0.3) 0,
+    rgba($bg-secondary,0.2) 4em,
+    transparent 0,
+    transparent 1em,
+    rgba($bg-primary,0.4) 0,
+    rgba($bg-primary,0.1) 2em
+  ), #FFF;
+  background-blend-mode: multiply;
+}
+.q-list{
+  position: relative;
+  margin: 50px 0px;
+  width: 500px;
+  margin-left: 460px;
+
+ h3{
+   text-align: left;
+   background-color: rgb(226, 226, 226);
+   padding:20px 10px;
+   @include pattern(#c0ebfa, #7FD7F5);
+   border-radius: 5px;
+ }
+}
+span{
+  position: absolute;
+  top: 20px;
+  right: 10px;
+}
+footer{
+  background-color: #BBBBBB;
+  padding-top:15px;
+  padding-bottom: 15px;
+  text-align: center;
+  font-size: 10px;
+}
+
+.thrid-wrapper{
+    padding-bottom: 40px;
+    padding-top: 30px;
+    text-align: center;
+    h2{
+      margin: 0px;
+      .fa-twitter{
+      font-size: 0.8em;
+      color: white;
+      padding:10px;
+      background-color: black;
+      border-radius: 50%;
+      }
+    }
+    h3{
+      font-size: 15px;
+      margin: 5px 0px 0px;
+      color: black;
+    }
+  }
+
+
+  /*↓アイパット↓*/
+@media(max-width:1024px){
+  .item{
+    display: none;
+  }
+  .q-list{
+  margin-left: 270px;
+  }
+  }
+@media(max-width:896px){
+  .item{
+    display: none;
+  }
+  .q-list{
+    margin-left: 200px;
+    }
+}
+/*↑アイパット↑*/
+/*↓スマホ↓*/
+@media(max-width:481px){
+  .first-content{
+    .service{
+      display: block;
+      max-width: 400px;
+    margin: 50px auto;
+    .plan{
+      margin: 0px auto;
+      margin-bottom: 50px;
+    }
+    .hp-lp{
+      margin: 0px auto;
+      margin-bottom: 50px;
+    }
+    }
+  }
+  .second-wrapper{
+    .q-list{
+    max-width: 400px;
+    margin: 30px auto;
+    font-size: 13px;
+    }
+  }
+}
+@media(max-width:414px){
+
+}
+@media(max-width:320px){
+  .first-content {
+    h1{
+      padding: 10px 50px;
+    }
+    .service{
+      max-width: 290px;
+      p{
+        max-width: 200px;
+      }
+    }
+  }
+  .second-wrapper{
+    .q-list{
+      max-width: 290px;
+      font-size: 10px;
+    }
+  }
+}
+/*↑スマホ↑*/
